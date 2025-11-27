@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sweet Five - Sistema Completo</title>
+
+<style>
+  :root{
+ --bg: #fff0f6; 
+ --primary: #ff7db8; 
+ --accent: #ff4fa3; 
+ --light: #ffcbe5; 
+ --text: #333; 
+ --card: #ffffff; 
+ }
+*{
+box-sizing:border-box;
+} 
+body{ 
+margin:0; 
+font-family: Arial, Helvetica, sans-serif; 
+background:var(--bg); 
+color:var(--text); 
+}
+header{
+ background:linear-gradient(180deg,var(--primary),var(--accent)); 
+ color:#fff; 
+ padding:22px 16px; 
+ text-align:center; 
+}
+header h1{
+margin:0; 
+font-size:28px;
+} 
+header h2{
+margin:6px 0 0 0; 
+font-weight:400;
+}
+.btn{ 
+display:inline-block; 
+background:var(--accent); 
+color:#fff; 
+padding:10px 18px; 
+border-radius:10px; 
+text-decoration:none; 
+font-weight:600; 
+margin:8px 6px; 
+cursor:pointer; 
+transition:transform .12s ease, box-shadow .12s ease; 
+border:none;
+}
+.btn:hover{
+transform:translateY(-3px); 
+box-shadow:0 6px 18px rgba(0,0,0,0.12);
+}
+section{
+padding:28px 18px; 
+max-width:960px; 
+margin:0 auto; 
+display:none;
+} 
+section.ativo{
+display:block;
+}
+.card{
+background:var(--card); 
+border-radius:12px; 
+padding:12px; 
+box-shadow:0 6px 18px rgba(0,0,0,0.06);
+margin-bottom:15px;
+}
+.card img{
+width: 150px; 
+border-radius:8px;
+}
+h2{
+font-size:22px; 
+margin-bottom:8px;
+}
+footer{
+background:var(--light); 
+padding:20px 10px; 
+text-align:center;
+margin-top:24px;
+border-top:2px solid #ff9aae;
+}
+
+.carrinho-lista img{
+width: 120px;
+border-radius:12px;
+}
+
+.carrinho-item{
+display:flex;
+align-items:center;
+gap:15px;
+background:white;
+padding:10px;
+border-radius:12px;
+margin-bottom:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.06);
+}
+@media (max-width: 600px){
+  
+}
+</style>
+</head>
+
+<body>/
+
+<header>
+    <img src="https://image2url.com/images/1764191411259-dd0c8a64-2bcd-4c34-a00f-94d829ce7727.jpeg" class="logo" width="140" style="border-radius:50%;" />
+    <h1>Sweet Five</h1>
+    <h2>Doces que adoçam sua vida 🍰</h2>
+</header>
+
+<!-- INICIO -->
+<section id="inicio" class="ativo">
+  <h2>Bem-vindo!</h2>
+  <p>Escolha uma opção para continuar:</p>
+  <a class="btn" onclick="mostrar('cardapio')">📖 Cardápio</a>
+  <a class="btn" onclick="mostrar('carrinho')">🛒 Carrinho</a>
+  <a class="btn" href="https://maps.app.goo.gl/wr4bxyW3tvoMVn2YA">📍 Localização</a>
+  <a class="btn" onclick="mostrar('contato')">📞 Fale Conosco</a>
+</section>
+
+<!-- CARDÁPIO -->
+<section id="cardapio">
+  <h2>Cardápio 🍬</h2>
+  <p>Brownie, brigadeiro, pudim e muito mais!</p>
+
+  <!-- PRODUTOS -->
+  <div class="card">
+    <img src="https://image2url.com/images/1764157505853-af778270-4d5d-4533-8a49-6b1b254bab7e.jpeg">
+    <h3>Bolo de cenoura</h3>
+    <p>R$ 6,00 ( fatia )</p>
+    <button class="btn" onclick="addCarrinho('Bolo de cenoura','R$ 6,00','https://image2url.com/images/1764157505853-af778270-4d5d-4533-8a49-6b1b254bab7e.jpeg')">Adicionar ao carrinho</button>
+  </div>
+
+  <div class="card">
+    <img src="https://image2url.com/images/1764157804238-7512e1af-ade3-48da-9af7-289261abd88e.jpeg">
+    <h3>Brownie recheado</h3>
+    <p>R$ 10,00</p>
+    <button class="btn" onclick="addCarrinho('Brownie recheado','R$ 10,00','https://image2url.com/images/1764157804238-7512e1af-ade3-48da-9af7-289261abd88e.jpeg')">Adicionar ao carrinho</button>
+  </div>
+  <div class="card">
+    <img src="https://image2url.com/images/1764157599347-ffd77c7b-9245-42f8-b9fd-5a9218b170c1.jpeg">
+    <h3>Brownie</h3>
+    <p>R$ 5,00</p>
+    <button class="btn" onclick="addCarrinho('Brownie','R$ 5,00','https://image2url.com/images/1764157599347-ffd77c7b-9245-42f8-b9fd-5a9218b170c1.jpeg')">Adicionar ao carrinho</button>
+  </div>
+ <div class="card">
+    <img src="https://image2url.com/images/1764157975859-c46cb59d-7811-44ca-b13e-018403898602.jpeg">
+    <h3>pudim tamanho M</h3>
+    <p>R$ 10,00</p>
+    <button class="btn" onclick="addCarrinho('pudim tamanho M','R$ 10,00','https://image2url.com/images/1764157975859-c46cb59d-7811-44ca-b13e-018403898602.jpeg')">Adicionar ao carrinho</button>
+  </div>
+ <div class="card">
+    <img src="https://image2url.com/images/1764158132088-ca64e23f-7860-4db4-8bbf-897e9d334380.jpeg">
+    <h3>copo da felicidade</h3>
+    <p>R$ 10,00</p>
+    <button class="btn" onclick="addCarrinho('copo da felicidade','R$ 10,00','https://image2url.com/images/1764158132088-ca64e23f-7860-4db4-8bbf-897e9d334380.jpeg')">Adicionar ao carrinho</button>
+  </div>
+  <div class="card">
+    <img src="https://image2url.com/images/1764158295212-232a0d56-2156-4334-9de2-3d119348388d.jpeg">
+    <h3>mousse de maracujá</h3>
+    <p>R$ 10,00</p>
+    <button class="btn" onclick="addCarrinho('mousse de maracujá','R$ 10,00','https://image2url.com/images/1764158295212-232a0d56-2156-4334-9de2-3d119348388d.jpeg')">Adicionar ao carrinho</button>
+  </div>
+   <div class="card">
+    <img src="https://image2url.com/images/1764158431495-d15ba2db-e35c-4ba4-9538-6b1a2b920fb2.jpeg">
+    <h3>bolo de pote</h3>
+    <p>R$ 7,00</p>
+    <button class="btn" onclick="addCarrinho('bolo de pote','R$ 7,00','https://image2url.com/images/1764158431495-d15ba2db-e35c-4ba4-9538-6b1a2b920fb2.jpeg')">Adicionar ao carrinho</button>
+  </div>
+  <div class="card">
+    <img src="https://image2url.com/images/1764158587245-c818ee4c-0c17-402c-9849-6c3259a035dd.jpeg">
+    <h3>brigadeiro gourmet</h3>
+    <p>R$ 3,00</p>
+    <button class="btn" onclick="addCarrinho('brigadeiro gourmet','R$ 3,00','https://image2url.com/images/1764158587245-c818ee4c-0c17-402c-9849-6c3259a035dd.jpeg')">Adicionar ao carrinho</button>
+  </div>
+ <div class="card">
+    <img src="https://image2url.com/images/1764158705217-bc0df096-78ca-4a60-ba0c-32132ece27a5.jpeg">
+    <h3>beijinho</h3>
+    <p>R$ 2,50</p>
+    <button class="btn" onclick="addCarrinho('brigadeiro gourmet','R$ 2,50','https://image2url.com/images/1764158705217-bc0df096-78ca-4a60-ba0c-32132ece27a5.jpeg')">Adicionar ao carrinho</button>
+  </div>
+   <div class="card">
+    <img src="https://image2url.com/images/1764160327371-b29265e7-16ed-443d-b5d2-744d152f0c86.jpeg">
+    <h3>cupcake de oreo</h3>
+    <p>R$ 5,00</p>
+    <button class="btn" onclick="addCarrinho('cupcake de oreo','R$ 5,00','https://image2url.com/images/1764160327371-b29265e7-16ed-443d-b5d2-744d152f0c86.jpeg')">Adicionar ao carrinho</button>
+  </div>
+  <div class="card">
+    <img src="https://image2url.com/images/1764159708467-9836fd3d-09e3-4e27-a6b6-57e025475451.jpeg">
+    <h3>cupcake de morango</h3>
+    <p>R$ 5,00</p>
+    <button class="btn" onclick="addCarrinho('cupcake de morango','R$ 5,00','https://image2url.com/images/1764159708467-9836fd3d-09e3-4e27-a6b6-57e025475451.jpeg')">Adicionar ao carrinho</button>
+  </div>
+   <div class="card">
+    <img src="https://image2url.com/images/1764160597949-1839fadc-5c02-4bc1-b5b8-dbd17b6f604f.jpeg">
+    <h3>cupcake de chocolate</h3>
+    <p>R$ 5,00</p>
+    <button class="btn" onclick="addCarrinho('cupcake de chocolate','R$ 5,00','https://image2url.com/images/1764160597949-1839fadc-5c02-4bc1-b5b8-dbd17b6f604f.jpeg')">Adicionar ao carrinho</button>
+  </div>
+  <div class="card">
+    <img src="https://image2url.com/images/1764186641712-5235867b-a93f-4fdf-8db5-761863617941.jpeg">
+    <h3>pão de mel</h3>
+    <p>R$ 4,00</p>
+    <button class="btn" onclick="addCarrinho('pão de mel','R$ 4,00','https://image2url.com/images/1764186641712-5235867b-a93f-4fdf-8db5-761863617941.jpeg')">Adicionar ao carrinho</button>
+  </div>
+   <div class="card">
+    <img src="https://image2url.com/images/1764206849668-4e09527f-09a0-404b-9416-060408c824a2.jpeg">
+    <h3>cone trufado</h3>
+    <p>R$ 8,00</p>
+    <button class="btn" onclick="addCarrinho('cone trufado','R$ 4,00','https://image2url.com/images/1764206849668-4e09527f-09a0-404b-9416-060408c824a2.jpeg')">Adicionar ao carrinho</button>
+  </div>
+  
+
+
+  <a class="btn" onclick="mostrar('inicio')">Voltar</a>
+</section>
+
+<!-- CARRINHO -->
+<section id="carrinho">
+  <h2>Carrinho 🛒</h2>
+  <p>Itens adicionados aparecerão aqui:</p>
+
+  <div id="lista-carrinho" class="carrinho-lista"></div>
+
+  <a class="btn" onclick="mostrar('cardapio')">➕ Adicionar mais</a>
+  <a class="btn" onclick="mostrar('pagamento')">💰 Finalizar Compra</a>
+  <a class="btn" onclick="mostrar('inicio')">Voltar</a>
+</section>
+
+<!-- PAGAMENTO -->
+<section id="pagamento">
+  <h2>Formas de Pagamento 💳</h2>
+  <a class="btn" onclick="mostrar('pix')">🏦 PIX</a>
+  <a class="btn" onclick="mostrar('cartao')">💳 Cartão</a>
+  <a class="btn" onclick="mostrar('dinheiro')">💵 Dinheiro</a>
+  <a class="btn" onclick="mostrar('carrinho')">Voltar</a>
+</section>
+<!-- PIX -->
+<section id="pix">
+  <h2>Pagar com PIX 🏦</h2>
+  <img class="qrcode" width="200" src="https://image2url.com/images/1764191935131-918d7636-1aca-415c-b136-1b4052119da9.jpeg">
+  <a class="btn" onclick="mostrar('confirmacao')">✔ Confirmar Pagamento</a>
+  <a class="btn" onclick="mostrar('pagamento')">Voltar</a>
+</section>
+<!-- cartão -->
+<section id="cartao">
+  <h2>Pagar no cartão</h2>
+   <p>O entregador irá levar a maquininha</p>
+  <a class="btn" onclick="mostrar('confirmacao')">✔ Confirmar Pagamento</a>
+  <a class="btn" onclick="mostrar('pagamento')">Voltar</a>
+</section>
+<!-- dinheiro -->
+<section id="dinheiro">
+  <h2>Pagar na entrega</h2>
+  <p>prepare o valor.Nosso entregador levará o troco.</p>
+  <a class="btn" onclick="mostrar('confirmacao')">✔ Confirmar Pagamento</a>
+  <a class="btn" onclick="mostrar('pagamento')">Voltar</a>
+</section>
+<!-- cartão -->
+<section id="cartão">
+  <h2>Pagar na entregr</h2>
+  <p>opção ainda em desenvolvimento.</p>
+  <a class="btn" onclick="mostrar('confirmacao')">✔ Confirmar Pagamento</a>
+  <a class="btn" onclick="mostrar('pagamento')">Voltar</a>
+</section>
+
+<!-- CONTATO -->
+<section id="contato">
+  <h2>Fale Conosco 📞</h2>
+  <p><b>WhatsApp</b></p>
+  <a class="btn" href="https://wa.me/55989881283859?text=gostaria%20de%20fazer%20um%20pedido" target="_blank">Enviar mensagem automática</a>
+
+  <p><b>Instagram</b></p>
+  <a class="btn" href="https://www.instagram.com/doce_sweetfive" target="_blank">Visitar Instagram</a>
+
+  <a class="btn" onclick="mostrar('inicio')">Voltar</a>
+</section>
+
+<!-- CONFIRMAÇÃO -->
+<section id="confirmacao">
+  <h2>Pedido Confirmado 🎉</h2>
+  <p>Obrigado por comprar na Sweet Five!</p>
+  <p>Seu pedido está sendo preparado com carinho 💖</p>
+  <a class="btn" onclick="mostrar('inicio')">Voltar ao Início</a>
+</section>
+
+<footer>Sweet Five • Doces feitos com amor ❤</footer>
+
+<script>
+let carrinho = [];
+
+function mostrar(secao) {
+  document.querySelectorAll('section').forEach(s => s.classList.remove('ativo'));
+  document.getElementById(secao).classList.add('ativo');
+  window.scrollTo(0, 0);
+}
+
+function addCarrinho(nome, preco, imagem) {
+  carrinho.push({ nome, preco, imagem });
+  atualizarCarrinho();
+  mostrar('carrinho');
+}
+
+function atualizarCarrinho() {
+  const area = document.getElementById('lista-carrinho');
+  area.innerHTML = "";
+
+  carrinho.forEach(item => {
+    area.innerHTML += `
+      <div class="carrinho-item">
+        <img src="${item.imagem}">
+        <div>
+          <h3>${item.nome}</h3>
+          <p>${item.preco}</p>
+        </div>
+      </div>
+    `;
+  });
+}
+</script>
+
+</body>
+</html>
